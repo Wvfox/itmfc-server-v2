@@ -20,6 +20,7 @@ LOCATION_LIST = ['voskresensk', 'beloozerskiy']
 
 @api_view(['GET'])
 @parser_classes([JSONParser])
+@error_handler_basic
 def init_media_s3(request):
     for clip in Clip.objects.all().filter(is_wrong=False):
         file_name = clip.media.url.split('/')[-1]
@@ -34,9 +35,11 @@ def init_media_s3(request):
         layer_third = dir_list[0] + '\\' + dir_list[1] + '\\' + dir_list[2]
         if not os.path.exists(layer_third):
             os.makedirs(layer_third)
-
-        with open(clip.media.url[1::], 'wb') as file:
-            file.write(requests.get('https://s3.twcstorage.ru/ca061599-n1app' + clip.media.url).content)
+        try:
+            with open(clip.media.url[1::], 'wb') as file:
+                file.write(requests.get('https://s3.twcstorage.ru/ca061599-n1app' + clip.media.url).content)
+        except Exception as ex:
+            print(ex)
     return HttpResponse()
 
 
