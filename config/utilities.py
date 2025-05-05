@@ -1,8 +1,7 @@
-
 import os.path
 from os.path import splitext
 from uuid import uuid4
-import cv2
+# import cv2
 from config.decorators import error_handler_basic
 
 from django.core.files.storage import FileSystemStorage
@@ -28,19 +27,19 @@ class UUIDFileStorage(FileSystemStorage):
         return url
 
 
-def get_video_duration(path):
-    # print(path)
-    # create video capture object
-    data = cv2.VideoCapture(path)
-
-    # count the number of frames
-    frames = data.get(cv2.CAP_PROP_FRAME_COUNT)
-    fps = data.get(cv2.CAP_PROP_FPS)
-
-    # calculating duration of the video
-    seconds = round(frames / fps)
-    # video_time = datetime.timedelta(seconds=seconds)
-    return seconds
+# def get_video_duration(path):
+#     # print(path)
+#     # create video capture object
+#     data = cv2.VideoCapture(path)
+#
+#     # count the number of frames
+#     frames = data.get(cv2.CAP_PROP_FRAME_COUNT)
+#     fps = data.get(cv2.CAP_PROP_FPS)
+#
+#     # calculating duration of the video
+#     seconds = round(frames / fps)
+#     # video_time = datetime.timedelta(seconds=seconds)
+#     return seconds
 
 
 def clear_dir_media():

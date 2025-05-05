@@ -1,4 +1,4 @@
-python -m pip install django requests djangorestframework pycryptodome mysql-connector-python gunicorn python-dotenv django-cors-headers opencv-python boto3
+python -m pip install django requests djangorestframework pycryptodome mysql-connector-python gunicorn python-dotenv django-cors-headers boto3
 
 django
 requests
@@ -8,8 +8,8 @@ mysql-connector-python
 gunicorn
 python-dotenv
 django-cors-headers
-opencv-python
 boto3
 
+opencv-python
 opencv-contrib-python
 

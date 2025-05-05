@@ -11,7 +11,7 @@ from rest_framework.parsers import MultiPartParser, JSONParser
 
 from config.decorators import error_handler_basic, mfc_auth_token
 from config.settings import MEDIA_ROOT, BASE_DIR
-from config.utilities import clear_dir_media, get_video_duration
+from config.utilities import clear_dir_media
 from .serializers import *
 
 
@@ -77,7 +77,7 @@ def clip_list(request):
         # get video
         clip = Clip.objects.get(id=serializer.data['id'])
         # write duration video
-        clip.duration = get_video_duration(str(MEDIA_ROOT) + str(clip.media)) + 2
+        # clip.duration = get_video_duration(str(MEDIA_ROOT) + str(clip.media)) + 2
 
         for loc in LOCATION_LIST:
             clip.locations.create(name=loc)
