@@ -40,6 +40,7 @@ def init_media_s3(request):
                 file.write(requests.get('https://s3.twcstorage.ru/ca061599-n1app' + clip.media.url).content)
         except Exception as ex:
             print(ex)
+            continue
     return HttpResponse()
 
 
