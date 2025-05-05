@@ -1,0 +1,18 @@
+meta {
+  name: Create
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{PERSONAL}}/printer
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "ip_printer": "1.1.1.1",
+    "model_printer": "test"
+  }
+}

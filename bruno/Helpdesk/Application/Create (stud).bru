@@ -1,0 +1,21 @@
+meta {
+  name: Create (stud)
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{HELPDESK}}/application/stud
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "token": "mfci32tstudent",
+    "category": "test",
+    "status": "desktop",
+    "operator_username": "byvshevmm",
+    "workstation_name": "mfc032-201-03"
+  }
+}

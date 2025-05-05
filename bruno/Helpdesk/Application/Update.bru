@@ -1,0 +1,17 @@
+meta {
+  name: Update
+  type: http
+  seq: 7
+}
+
+put {
+  url: {{HELPDESK}}/application/4
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "status": "complete"
+  }
+}

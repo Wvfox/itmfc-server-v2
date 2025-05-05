@@ -1,0 +1,18 @@
+meta {
+  name: Create
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{PERSONAL}}/workstation
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name_desktop": "mfc032-201-03",
+    "ip_printer": "1.1.1.1"
+  }
+}
