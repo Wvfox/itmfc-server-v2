@@ -23,21 +23,24 @@ LOCATION_LIST = ['voskresensk', 'beloozerskiy']
 @error_handler_basic
 def init_media_s3(request):
     for clip in Clip.objects.all().filter(is_wrong=False):
-        file_name = clip.media.url.split('/')[-1]
-        dir_list = clip.media.url[1::].split('/')[:-1]
+        # media_url = '/media/publish/31-01-2025/4ce886ea488a4799a77176e1a9b57c30.webm'[1::]
+        media_url = str(clip.media.url)[1::]
+        dir_list = media_url.split('/')
 
-        layer_first = dir_list[0]
+        layer_first = os.path.join(BASE_DIR, dir_list[0])
         if not os.path.exists(layer_first):
-            os.makedirs(layer_first)
-        layer_second = dir_list[0] + '\\' + dir_list[1]
+            os.mkdir(layer_first)
+        layer_second = os.path.join(layer_first, dir_list[1])
         if not os.path.exists(layer_second):
-            os.makedirs(layer_second)
-        layer_third = dir_list[0] + '\\' + dir_list[1] + '\\' + dir_list[2]
+            os.mkdir(layer_second)
+        layer_third = os.path.join(layer_second, dir_list[2])
         if not os.path.exists(layer_third):
-            os.makedirs(layer_third)
+            os.mkdir(layer_third)
+
+        layer_media = os.path.join(layer_third, dir_list[3])
         try:
-            with open(clip.media.url[1::], 'wb') as file:
-                file.write(requests.get('https://s3.twcstorage.ru/ca061599-n1app' + clip.media.url).content)
+            with open(layer_media, 'wb') as file:
+                file.write(requests.get('https://s3.twcstorage.ru/ca061599-n1app' + media_url).content)
         except Exception as ex:
             print(ex)
             continue
