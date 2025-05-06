@@ -1,6 +1,7 @@
 import datetime
 import os.path
 import requests
+import youtube_dl
 
 from config.cloud_client import cloud_client
 from config.cypher import decrypt_aes
@@ -40,7 +41,7 @@ def init_media_s3(request):
         layer_media = os.path.join(layer_third, dir_list[3])
         try:
             with open(layer_media, 'wb') as file:
-                file.write(requests.get('https://s3.twcstorage.ru/ca061599-n1app' + media_url).content)
+                file.write(requests.get('https://s3.twcstorage.ru/ca061599-n1app' + '/' + media_url).content)
         except Exception as ex:
             print(ex)
             continue
