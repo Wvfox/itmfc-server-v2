@@ -1,7 +1,6 @@
 import datetime
 import os.path
 import requests
-import youtube_dl
 
 from config.cloud_client import cloud_client
 from config.cypher import decrypt_aes
