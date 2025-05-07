@@ -12,5 +12,6 @@ urlpatterns = [
     path('api/personal/', include('personal.urls')),
     path('api/helpdesk/', include('helpdesk.urls')),
     path('api/publish/', include('publish.urls')),
-    path('api/website/', include('website.urls'))
+    path('api/website/', include('website.urls')),
+    path('api/antispam/', include('antispam.urls'))
 ]

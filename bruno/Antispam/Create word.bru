@@ -1,0 +1,18 @@
+meta {
+  name: Create word
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{ANTISPAM}}/dictionary
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "word": "test word",
+    "value": 20
+  }
+}

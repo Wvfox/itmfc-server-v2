@@ -1,0 +1,23 @@
+meta {
+  name: Create log
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{ANTISPAM}}/log
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "username": "mm1",
+    "full_time": "11:11:1111 29.22.2205",
+    "text": "adsadasdad ad sa dasd asd asd ad asdasdasdasdasadsaa",
+    "chat_id": 1232131231,
+    "msg_id": 43242342,
+    "user_id": 1312321313131,
+    "sum_spam": 131
+  }
+}

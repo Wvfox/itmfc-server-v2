@@ -1,0 +1,17 @@
+meta {
+  name: View word
+  type: http
+  seq: 2
+}
+
+patch {
+  url: {{ANTISPAM}}/dictionary/check
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "word": "test word"
+  }
+}

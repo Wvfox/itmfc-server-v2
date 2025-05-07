@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'task.apps.TaskConfig',
     'publish.apps.PublishConfig',
     'website.apps.WebsiteConfig',
+    'antispam.apps.AntispamConfig',
     'rest_framework'
 ]
 
