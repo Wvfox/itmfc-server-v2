@@ -15,7 +15,7 @@ class AntispamDictionary(models.Model):
 
 
 class PublicChatLog(models.Model):
-    username = models.CharField('Time msg', max_length=255)
+    username = models.CharField('Username', max_length=255)
     full_time = models.CharField('Time msg', max_length=128)
     text = models.TextField('Text')
     chat_id = models.BigIntegerField('Chat id')
